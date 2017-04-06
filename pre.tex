@@ -1,0 +1,72 @@
+\documentclass[a4paper,twoside,12pt]{book}
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+\usepackage[T1]{fontenc}
+%\usepackage{parskip}
+\usepackage{calc}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{url}
+\usepackage{textcomp}
+\usepackage{enumitem}
+\usepackage{marginnote}
+%\usepackage[top=Bcm, bottom=Hcm, outer=Ccm, inner=Acm, heightrounded, marginparwidth=Ecm, marginparsep=Dcm]{geometry}
+\usepackage[
+	unicode=true,
+	colorlinks=true,
+	urlcolor=black,
+	linkcolor=black,
+	citecolor=black,
+	filecolor=black,
+	pdfauthor={Fjalar Fors},
+	pdftitle={Jungar by lokalhistoria},
+	pdfsubject={Byahistorik},
+	pdfkeywords={Jeppo, historik, byar, gårdar}
+]{hyperref}
+
+% Variables
+\author{Fjalar Fors etc}
+\title{Jungar by lokalhistoria}
+
+% Settings
+\setlist{nosep}
+\setlist[enumerate,1]{label=\arabic*), ref=\arabic*}
+\newlength{\jhoccupantskip}
+\setlength{\jhoccupantskip}{1\parskip}
+\addtolength{\jhoccupantskip}{1\baselineskip}
+\setlength{\wrapoverhang}{\marginparwidth}
+\addtolength{\wrapoverhang}{\marginparsep}
+
+% Commands
+\makeatletter
+\newcommand{\gobblepars}{%
+	\@ifnextchar\par%
+		{\expandafter\gobblepars\@gobble}%
+		{}
+}
+\makeatother
+\newcommand{\jhoccupant}[3]{\subsection*{#1}\leavevmode\marginnote{\textbf{#1} \\ #2 \\ #3}\gobblepars}
+\newcommand{\jhchapter}[1]{\chapter*{#1}}
+\newcommand{\jhobject}[3]{\section*{#1}}
+\newcommand{\jhperson}[3]{#1, \textborn #2\notblank{#3}{ - \textdied #3}{}}
+\newcommand{\jhobjpic}[3]{
+	\begin{wrapfigure}{R}{0.51\textwidth}
+		\begin{center}
+			\includegraphics[width=0.5\textwidth]{bilder/#1}
+			{\footnotesize#2}
+		\end{center}
+		\label{fig:#3}
+	\end{wrapfigure}
+}
+
+% Envs
+\newenvironment{jhchildren}{\par\noindent Barn:\begin{enumerate}[label=\alph*)]}{\end{enumerate}}
+
+% Document
+\begin{document}
+\frontmatter
+
+\maketitle
+\mainmatter
