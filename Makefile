@@ -1,17 +1,16 @@
-kapitel := $(wildcard kapitel*.tex)
+texts := $(filter-out historik.tex pre.tex post.tex,$(wildcard *.tex))
 
 all: historik.pdf
 
 %.pdf: %.tex
-	@pdflatex $<
-	@pdflatex $<
+	@pdflatex -interaction=nonstopmode -halt-on-error $< && pdflatex -interaction=nonstopmode -halt-on-error $<
 
 #historik.pdf: historik.tex
 
-historik.tex: pre.tex post.tex $(kapitel)
+historik.tex: pre.tex post.tex $(texts)
 	@cat pre.tex > $@
-	@for kap in "$(basename $(kapitel))"; do \
-		echo "\n\\include{$$kap}\n" >> $@; \
+	@for text in "$(basename $(texts))"; do \
+		echo "\n\\include{$$text}\n" >> $@; \
 	done
 	@cat post.tex >> $@
 
