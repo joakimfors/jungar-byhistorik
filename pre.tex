@@ -54,10 +54,12 @@
 	\chapter*{#1}%
 	\addcontentsline{toc}{chapter}{\protect#1}%
 }
-\newcommand{\jhhouse}[3]{%
+\newcommand{\jhsection}[1]{\section*{#1}}
+\newcommand{\jhsubsection}[1]{\subsection*{#1}}
+\newcommand{\jhhouse}[4]{%
 	\section*{#1}%
 	\addcontentsline{toc}{section}{\protect#1}%
-	#2
+	#2 #3 #4
 }
 \newcommand{\jhperson}[3]{#1, \textborn #2\notblank{#3}{ - \textdied #3}{}}
 \newcommand{\jhhousepic}[3]{
