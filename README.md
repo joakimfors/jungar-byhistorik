@@ -14,7 +14,7 @@ Bilderna bör ha så hög upplösning som möjligt för att det inte ska bli oty
 
 `\jhchapter{kapitelnamn}` - Skapar nytt kapitel
 
-`\jhhouse{husnamn}{...}{...}` -
+`\jhhouse{husnamn}{registernummer}{hemman}{kartblad}` -
 
 `\jhoccupant{efternamn}{förnamn}{årtal}` -
 
