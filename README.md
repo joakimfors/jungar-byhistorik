@@ -1,6 +1,14 @@
 # Jungar byhistorik
 
+## Bilder
+
+Placera alla bilder i katalogen *bilder*. Bildernas filnamn får ej innehålla bokstäverna å, ä eller ö. Använd gärna beskrivande filnamn.
+
+Bilderna bör ha så hög upplösning som möjligt för att det inte ska bli otydligt vid tryck. Vid behov kan mindre versioner av bilderna skapas automatiskt utgående ifrån originalfilerna.
+
+
 ## Skrivinstruktioner
+
 
 ### Kortkommandon
 
@@ -43,11 +51,16 @@ Tabeller skapas t.ex. som nedan:
 Kommandot `\begin{center}` säger att hela tabellen ska centreras på sidan. Det andra fältet i `\begin{tabular}{l|c|r}` anger antalet kolumner samt hur text i kolumnerna ska justeras. Tecknet `|` betyder att kolumnerna separeras av en linje. Värden i tabellen separeras sedan med `&` och en rad i tabellen avslutas med `\\`. För att infoga horisontella linjer kan man använda kommandot `\hline`.
 
 
+### Specialtecken
+
+Tecknet *&* fås med `\&`.
+
+
 ## Atom handhavande
 
-### Kommandon
+### Skapa PDF-fil
 
-`Cmd Alt B / Ctrl Alt B / F9` - Generera ny *historik.pdf*
+För att skapa en ny *historik.pdf* kan man antingen trycka `Cmd Alt B / Ctrl Alt B / F9` eller gå via **Packages -> Build -> Build project**. Uppstår något fel vid körning så visas det i ett fönster.
 
 ### Git versionshantering
 
