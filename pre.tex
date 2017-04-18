@@ -7,6 +7,7 @@
 \usepackage{calc}
 \usepackage{etoolbox}
 \usepackage{graphicx}
+\usepackage[space]{grffile}
 \usepackage{wrapfig}
 \usepackage{url}
 \usepackage{textcomp}
@@ -21,14 +22,15 @@
 	citecolor=black,
 	filecolor=black,
 	pdfauthor={Fjalar Fors},
-	pdftitle={Jungar by lokalhistoria},
+	pdftitle={Jungar byhistorik},
 	pdfsubject={Byahistorik},
-	pdfkeywords={Jeppo, historik, byar, gårdar}
+	pdfkeywords={Jeppo, Jungar, historik, byar, gårdar}
 ]{hyperref}
 
 % Variables
 \author{Fjalar Fors etc}
-\title{Jungar by lokalhistoria}
+\title{Jungar byhistorik}
+\pagestyle{plain}
 
 % Settings
 \setlist{nosep}
@@ -47,11 +49,18 @@
 		{}
 }
 \makeatother
-\newcommand{\jhoccupant}[3]{\subsection*{#1}\leavevmode\marginnote{\textbf{#1} \\ #2 \\ #3}\gobblepars}
-\newcommand{\jhchapter}[1]{\chapter*{#1}}
-\newcommand{\jhobject}[3]{\section*{#1}}
+\newcommand{\jhoccupant}[3]{\invisiblesubsection{#1}\leavevmode\marginnote{\textbf{#1} \\ #2 \\ #3}\gobblepars}
+\newcommand{\jhchapter}[1]{%
+	\chapter*{#1}%
+	\addcontentsline{toc}{chapter}{\protect#1}%
+}
+\newcommand{\jhhouse}[3]{%
+	\section*{#1}%
+	\addcontentsline{toc}{section}{\protect#1}%
+	#2
+}
 \newcommand{\jhperson}[3]{#1, \textborn #2\notblank{#3}{ - \textdied #3}{}}
-\newcommand{\jhobjpic}[3]{
+\newcommand{\jhhousepic}[3]{
 	\begin{wrapfigure}{R}{0.51\textwidth}
 		\begin{center}
 			\includegraphics[width=0.5\textwidth]{bilder/#1}
@@ -60,6 +69,29 @@
 		\label{fig:#3}
 	\end{wrapfigure}
 }
+\newcommand{\jhpic}[2]{
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[width=1\textwidth]{bilder/#1}
+			{\footnotesize#2}
+		\end{center}
+	\end{figure}
+}
+\newcommand\invisiblesection[1]{%
+	\refstepcounter{section}%
+	\addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+	\sectionmark{#1}
+}
+\makeatletter
+\newcommand\invisiblesubsection[1]{%
+%	\refstepcounter{section}%
+	%\markboth{}
+	\vskip \baselineskip
+	%\addcontentsline{toc}{subsection}{\protect#1}%
+	%\sectionmark{#1}
+	\@afterheading%
+}
+\makeatother
 
 % Envs
 \newenvironment{jhchildren}{\par\noindent Barn:\begin{enumerate}[label=\alph*)]}{\end{enumerate}}
@@ -69,4 +101,7 @@
 \frontmatter
 
 \maketitle
+
+\tableofcontents
+
 \mainmatter

@@ -1,0 +1,7 @@
+*.aux
+*.log
+*.toc
+*.out
+.DS_Store
+*.pdf
+historik.tex
