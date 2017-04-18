@@ -10,7 +10,7 @@ historik.pdf: historik.tex
 historik.tex: pre.tex post.tex $(texts)
 	@cat pre.tex > $@
 	@for text in $(sort $(basename $(texts))); do \
-		echo "\n\\include{$$text}\n" >> $@; \
+		echo "\n\\input{$$text}\n" >> $@; \
 	done
 	@cat post.tex >> $@
 
