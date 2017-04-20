@@ -57,10 +57,10 @@
 }
 \newcommand{\jhsection}[1]{\section*{#1}}
 \newcommand{\jhsubsection}[1]{\subsection*{#1}}
-\newcommand{\jhhouse}[4]{%
+\newcommand{\jhhouse}[5]{%
 	\section*{#1}%
 	\addcontentsline{toc}{section}{\protect#1}%
-	#2 #3 #4
+	R:nr #2 av #3 hemman Karta #4 nr #5
 }
 \newcommand{\jhperson}[3]{#1, \textborn #2\notblank{#3}{ - \textdied #3}{}}
 \newcommand{\jhhousepic}[2]{
@@ -95,6 +95,7 @@
 	\@afterheading%
 }
 \makeatother
+\newcommand{\jhbold}[1]{\textbf{#1}}
 
 % Envs
 \newenvironment{jhchildren}{\par\noindent Barn:\begin{enumerate}[label=\alph*)]}{\end{enumerate}}
