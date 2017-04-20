@@ -1,10 +1,21 @@
 # Jungar byhistorik
 
-## Bilder
+## Allmänna instruktioner
 
-Placera alla bilder i katalogen *bilder*. Bildernas filnamn får ej innehålla bokstäverna å, ä eller ö. Använd gärna beskrivande filnamn.
+### Bilder
+
+Placera alla bilder i katalogen *bilder*. Bildernas filnamn får ej innehålla bokstäverna å, ä eller ö och helst inte mellanslag heller. Använd gärna beskrivande filnamn.
 
 Bilderna bör ha så hög upplösning som möjligt för att det inte ska bli otydligt vid tryck. Vid behov kan mindre versioner av bilderna skapas automatiskt utgående ifrån originalfilerna.
+
+
+### Textfiler
+
+Text som ska ingå i dokumentet ska sparas i filer i grundkatalogen. Filnamnen bör bara innehålla bokstäver från a-z ej innehålla mellanslag och sluta med ändelsen *.tex*.
+
+### Index
+
+Ordningen på hur textfiler ska inkluderas i det slutgiltiga dokumentet anges i filen *index.txt*. Ange ett filnamn per rad i den ordning som de önskas inkluderas.
 
 
 ## Skrivinstruktioner
@@ -22,9 +33,9 @@ Bilderna bör ha så hög upplösning som möjligt för att det inte ska bli oty
 
 `\jhoccupant{efternamn}{förnamn}{årtal}` -
 
-`\jhhousepic{filnamn}` - Infogar husbild från katalogen *bilder*
+`\jhhousepic{filnamn}{bildtext}` - Infogar husbild från katalogen *bilder*
 
-`\jhpic{filnamn}` - Infogar bild från katalogen *bilder*
+`\jhpic{filnamn}{bildtext}` - Infogar bild från katalogen *bilder*
 
 `\jhperson{namn}{född}{död}` - Formaterar automatiskt datumen
 
@@ -39,6 +50,8 @@ Lista över barn skapas på följande sätt:
   \item \jhperson{Mamma Mu}{01.02.2003}{}, ko
 \end{jhchildren}</pre>
 
+Texten *Barn:* sätts automatiskt in före listan.
+
 Tabeller skapas t.ex. som nedan:
 
 <pre>
@@ -52,15 +65,26 @@ Tabeller skapas t.ex. som nedan:
   \end{tabular}
 \end{center}</pre>
 
-Kommandot `\begin{center}` säger att hela tabellen ska centreras på sidan. Det andra fältet i `\begin{tabular}{l|c|r}` anger antalet kolumner samt hur text i kolumnerna ska justeras. Tecknet `|` betyder att kolumnerna separeras av en linje. Värden i tabellen separeras sedan med `&` och en rad i tabellen avslutas med `\\`. För att infoga horisontella linjer kan man använda kommandot `\hline`.
+Kommandot `\begin{center}` säger att hela tabellen ska centreras på sidan. Det andra fältet i `\begin{tabular}{l|c|r}` anger antalet kolumner, i det här fallet 3 st, samt hur text i kolumnerna ska justeras. Tecknet `|` betyder att kolumnerna separeras av en linje. Lämna bort om linjenseparator ej önskas. Värden i tabellen separeras sedan med `&` och en rad i tabellen avslutas med `\\`. För att infoga horisontella linjer kan man använda kommandot `\hline`.
+
+Listor:
+
+<pre>
+\begin{enumerate}
+  \item hejsan
+  \item svejsan
+\end{enumerate}</pre>
 
 
 ### Specialtecken
 
-Tecknet *&* fås med `\&`.
-
+Tecknet *&* fås med `\&`. Citat görs genom att börja citatet med två \`  (grav accent) och avsluta med två `'` (enkel citattecken).
 
 ## Atom handhavande
+
+### Skapa ny fil
+
+Antingen genom **File -> New File**, vilket skapar en tom icke namngiven fil som man sedan sparar som vanligt med **File -> Save As** (där man anger namn och i vilken katalog den ska vara [jungar-byhistorik]), eller genom att högerklicka på något tomt område i vänstra spalten och välja **New File**. Det kommer då upp en ruta där man får ange filnamnet direkt.
 
 ### Skapa PDF-fil
 
