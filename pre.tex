@@ -59,25 +59,24 @@
 \newcommand{\jhsubsection}[1]{\subsection*{#1}}
 \newcommand{\jhhouse}[5]{%
 	\section*{#1}%
-	\addcontentsline{toc}{section}{\protect#1}%
-	R:nr #2 av #3 hemman Karta #4 nr #5
+	\addcontentsline{toc}{section}{\protect#1}
+
+	R:nr #2 av #3 hemman Karta #4 nr \jhbold{#5}
 }
 \newcommand{\jhperson}[3]{#1, \textborn #2\notblank{#3}{ - \textdied #3}{}}
-\newcommand{\jhhousepic}[2]{
-	\begin{wrapfigure}{R}{0.51\textwidth}
-		\begin{center}
-			\includegraphics[width=0.5\textwidth]{bilder/#1}
-			{\footnotesize#2}
-		\end{center}
-		%\label{fig:#3}
+\newcommand{\jhhousepic}[2]{%
+	\begin{wrapfigure}{O}{0.5\textwidth}
+		\vspace{-1\baselineskip}
+		\centering
+			\includegraphics[width=0.48\textwidth]{bilder/#1}
+			\ifstrempty{#2}{}{{\footnotesize#2}}
 	\end{wrapfigure}
 }
 \newcommand{\jhpic}[2]{
 	\begin{figure}[h]
-		\begin{center}
+		\centering
 			\includegraphics[width=1\textwidth]{bilder/#1}
-			{\footnotesize#2}
-		\end{center}
+			\ifstrempty{#2}{}{{\footnotesize#2}}
 	\end{figure}
 }
 \newcommand\invisiblesection[1]{%
