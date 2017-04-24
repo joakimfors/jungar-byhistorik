@@ -29,15 +29,17 @@ Ordningen på hur textfiler ska inkluderas i det slutgiltiga dokumentet anges i 
 
 `\jhsubsection{undersektionsnamn}` - …
 
-`\jhhouse{husnamn}{registernummer}{hemman}{kartblad}` -
+`\jhhouse{husnamn}{registernummer}{hemman}{kartblad}{husnummer}` - Påbörjar ett avsnitt om en gård
 
-`\jhoccupant{efternamn}{förnamn}{årtal}` -
+`\jhoccupant{efternamn}{förnamn}{årtal}` - Boende på gården under ett tidsintervall
 
 `\jhhousepic{filnamn}{bildtext}` - Infogar husbild från katalogen *bilder*
 
 `\jhpic{filnamn}{bildtext}` - Infogar bild från katalogen *bilder*
 
 `\jhperson{namn}{född}{död}` - Formaterar automatiskt datumen
+
+`\jhbold{text}` -  Fet stil
 
 
 ### Listor och tabeller
