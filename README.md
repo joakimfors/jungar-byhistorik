@@ -92,7 +92,7 @@ För att skapa en ny *historik.pdf* kan man antingen trycka `Cmd Alt B / Ctrl Al
 
 ### Git versionshantering
 
-Filerna i vänstra spalten har olika färger beroende på deraas status i versionshanteringen.
+Filerna i vänstra spalten har olika färger beroende på deras status i versionshanteringen.
 
 - Ljusgrå: Versionshanterade filer utan ändringar
 - Orange: Versionshanterade filer med nya ändringar
