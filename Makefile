@@ -15,6 +15,8 @@ historik.tex: pre.tex post.tex $(texts) index.txt
 	done
 	@cat post.tex >> $@
 
+test.pdf: test.tex pre.tex post.tex
+
 clean:
 	rm -f *.aux *.log *.out *.toc historik.pdf historik.tex
 
