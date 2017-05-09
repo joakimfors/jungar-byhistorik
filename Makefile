@@ -3,8 +3,8 @@ texts := $(shell cat index.txt)
 all: historik.pdf
 
 %.pdf: %.tex
-	@pdflatex -interaction=nonstopmode -halt-on-error $< && \
-		pdflatex -interaction=nonstopmode -halt-on-error $<
+	@xelatex -halt-on-error $< && \
+		xelatex -halt-on-error $<
 
 historik.pdf: historik.tex
 

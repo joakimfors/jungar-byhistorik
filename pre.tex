@@ -1,10 +1,10 @@
 \documentclass[a4paper,twoside,12pt]{book}
 % Packages
-\usepackage[utf8]{inputenc}
-\usepackage[swedish]{babel}
-\usepackage[T1]{fontenc} % install cm-super to get nicely rendered fonts in pdf
-\usepackage{textcomp}
-%\usepackage{parskip}
+\usepackage{polyglossia}
+\setdefaultlanguage{swedish}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
 \usepackage[parfill]{parskip}
 \usepackage{calc}
 \usepackage{etoolbox}
@@ -14,6 +14,7 @@
 \usepackage{url}
 \usepackage{enumitem}
 \usepackage{marginnote}
+%\usepackage{needspace}
 %\usepackage[top=Bcm, bottom=Hcm, outer=Ccm, inner=Acm, heightrounded, marginparwidth=Ecm, marginparsep=Dcm]{geometry}
 \usepackage[
 	unicode=true,
@@ -27,6 +28,23 @@
 	pdfsubject={Byahistorik},
 	pdfkeywords={Jeppo, Jungar, historik, byar, gårdar}
 ]{hyperref}
+\usepackage{bookmark}
+
+\setmainfont[
+	Path = typsnitt/LinLibertine/,
+	Extension = .otf,
+	UprightFont = LinLibertine_R,
+	BoldFont = LinLibertine_RZ, % Linux Libertine O Regular Semibold
+	ItalicFont = LinLibertine_RI,
+	BoldItalicFont = LinLibertine_RZI,
+]{Libertine}
+\setsansfont[
+	Path = typsnitt/LinLibertine/,
+	Extension = .otf,
+	UprightFont = LinBiolinum_R,
+	BoldFont = LinBiolinum_RB,
+	ItalicFont = LinBiolinum_RI,
+]{Biolinum}
 
 % Variables
 \author{Fjalar Fors etc}
@@ -39,8 +57,10 @@
 \newlength{\jhoccupantskip}
 \setlength{\jhoccupantskip}{1\parskip}
 \addtolength{\jhoccupantskip}{1\baselineskip}
-\setlength{\wrapoverhang}{\marginparwidth}
-\addtolength{\wrapoverhang}{\marginparsep}
+\setlength{\wrapoverhang}{\marginparwidth} % wrapfig intrusion on margin
+\addtolength{\wrapoverhang}{\marginparsep} % - " -
+\newlength{\jhoccupantstart}
+\newlength{\jhoccupantstop}
 
 % Commands
 \makeatletter
@@ -50,7 +70,17 @@
 		{}
 }
 \makeatother
-\newcommand{\jhoccupant}[3]{\invisiblesubsection{#1}\leavevmode\marginnote{\textbf{#1} \\ #2 \\ #3}\gobblepars}
+\newcommand{\jhoccupant}[3]{%
+	\message{start \the\jhoccupantstart}%
+	\message{stop \the\jhoccupantstop}%
+	\invisiblesubsection{#1}%
+	\setlength{\jhoccupantstart}{\pagetotal}%
+	\leavevmode%
+	\marginnote{%
+		\textbf{#1} \\ #2 \\ #3%
+	}\gobblepars%
+	%\setlength{\jhoccupantstop}{\pagetotal}%
+}
 \newcommand{\jhchapter}[1]{%
 	\chapter*{#1}%
 	\addcontentsline{toc}{chapter}{\protect#1}%
@@ -64,6 +94,16 @@
 	R:nr #2 av #3 hemman Karta #4 nr \jhbold{#5}
 }
 \newcommand{\jhperson}[3]{#1, \textborn #2\notblank{#3}{ - \textdied #3}{}}
+\makeatletter
+\newcommand{\checkheight}[1]{%
+  \par \penalty-100\begingroup%
+  \setbox8=\hbox{#1}%
+  \setlength{\dimen@}{\ht8}%
+  \dimen@ii\pagegoal \advance\dimen@ii-\pagetotal
+  \ifdim \dimen@>\dimen@ii
+    \break
+  \fi\endgroup}
+\makeatother
 \newcommand{\jhhousepic}[2]{%
 	\begin{wrapfigure}{O}{0.5\textwidth}
 		\vspace{-1\baselineskip}
@@ -95,6 +135,8 @@
 }
 \makeatother
 \newcommand{\jhbold}[1]{\textbf{#1}}
+\def\textborn {\char"2605\relax} %{\char"002A }
+\def\textdied {\char"271D\relax} %{\char"2020 } %{\char"271D }
 
 % Envs
 \newenvironment{jhchildren}{\par\noindent Barn:\begin{enumerate}[label=\alph*)]}{\end{enumerate}}
