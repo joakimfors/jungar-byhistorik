@@ -16,6 +16,7 @@
 \usepackage{marginnote}
 \usepackage{lipsum}
 \usepackage[nobottomtitles*]{titlesec}
+\usepackage{microtype}
 %\usepackage{needspace}
 %\usepackage[top=Bcm, bottom=Hcm, outer=Ccm, inner=Acm, heightrounded, marginparwidth=Ecm, marginparsep=Dcm]{geometry}
 \usepackage[
@@ -47,6 +48,10 @@
 	BoldFont = LinBiolinum_RB,
 	ItalicFont = LinBiolinum_RI,
 ]{Biolinum}
+
+\defaultfontfeatures{Mapping=tex-text}
+% and/or - see comments
+\defaultfontfeatures{Ligatures=TeX}
 
 % Variables
 \author{Fjalar Fors etc}
