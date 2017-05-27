@@ -14,6 +14,7 @@
 \usepackage{url}
 \usepackage{enumitem}
 \usepackage{marginnote}
+\usepackage{needspace}
 \usepackage{lipsum}
 \usepackage[nobottomtitles*]{titlesec}
 \usepackage{microtype}
@@ -78,6 +79,7 @@
 }
 \makeatother
 \newcommand{\jhoccupant}[3]{%
+	\needspace{4\baselineskip}
 	\message{start \the\jhoccupantstart}%
 	\message{stop \the\jhoccupantstop}%
 	\invisiblesubsection{#1}%
@@ -95,6 +97,7 @@
 \newcommand{\jhsection}[1]{\section*{#1}}
 \newcommand{\jhsubsection}[1]{\subsection*{#1}}
 \newcommand{\jhhouse}[5]{%
+	\needspace{10\baselineskip}
 	\section*{#1}%
 	\addcontentsline{toc}{section}{\protect#1}
 
@@ -112,6 +115,7 @@
   \fi\endgroup}
 \makeatother
 \newcommand{\jhhousepic}[2]{%
+	\Needspace{9\baselineskip}%
 	\begin{wrapfigure}{O}{0.5\textwidth}
 		\vspace{-1\baselineskip}
 		\centering
