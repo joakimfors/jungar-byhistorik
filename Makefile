@@ -1,4 +1,5 @@
 texts := $(shell cat index.txt)
+imgs := $(shell find bilder -iname '*.jpg' -or -iname '*.png' | sed 's/ /\\ /g')
 
 all: historik.pdf
 
@@ -6,14 +7,18 @@ all: historik.pdf
 	@xelatex -halt-on-error $< && \
 		xelatex -halt-on-error $<
 
-historik.pdf: historik.tex
+historik.pdf: historik.tex pre.tex post.tex
 
-historik.tex: pre.tex post.tex $(texts) index.txt
-	@cat pre.tex > $@
-	@for text in $(basename $(texts)); do \
-		echo "\n\\input{$$text}\n" >> $@; \
-	done
-	@cat post.tex >> $@
+historik.tex: $(texts) index.txt
+	$(file >$@,\input{pre.tex})
+	$(foreach t,$(texts),$(file >>$@,\input{$t}))
+	$(file >>$@,\input{post.tex})
+	@./process_img.sh
+
+#bilder/.processed: $(imgs)
+#	@echo "$?"
+#	$(foreach img,$?,@./process_img.sh "$(img)")
+#	@touch $@
 
 test.pdf: test.tex pre.tex post.tex
 
@@ -21,3 +26,4 @@ clean:
 	rm -f *.aux *.log *.out *.toc historik.pdf historik.tex
 
 .PHONY: clean
+
