@@ -62,6 +62,10 @@
 % Settings
 \setlist{nosep}
 \setlist[enumerate,1]{label=\arabic*), ref=\arabic*}
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{4}
+\setcounter{totalnumber}{10}
+
 \newlength{\jhoccupantskip}
 \setlength{\jhoccupantskip}{1\parskip}
 \addtolength{\jhoccupantskip}{1\baselineskip}
@@ -156,7 +160,7 @@
 \newcommand{\jhbold}[1]{\textbf{#1}}
 \def\textborn {\char"2605\relax} %{\char"002A }
 \def\textdied {\char"271D\relax} %{\char"2020 } %{\char"271D }
-
+\newcommand{\jhvspace}[1]{\vspace{3\baselineskip}}
 % Envs
 \newenvironment{jhchildren}{%
 	\begin{samepage}%
