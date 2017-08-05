@@ -11,4 +11,8 @@ Silvast_Fors05.tex
 Silvast_Fors06.tex
 Grotas01.tex
 Boos01.tex
-Jungar01.tex
+Jungar_Ruotsala.tex
+Mietala.tex
+Gunnar.tex
+Tollikko.tex
+Jungara.tex
