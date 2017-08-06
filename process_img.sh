@@ -4,7 +4,7 @@ max_size=3072
 
 [ ! -f bilder/.processed ] && touch -d "1970-01-01 00:00:00" bilder/.processed
 
-find bilder/ -newer bilder/.processed -and "(" -iname "*.jpg" -or -iname "*.png" ")" | while read img; do
+find bilder/ -newer bilder/.processed -and "(" -iname "*.jpg" -or -iname "*.jpeg" -or -iname "*.png" ")" | while read img; do
 	echo "Inspecting ${img} ..."
 	info=$(exiv2 -q "${img}" 2>/dev/null)
 	err=$?
