@@ -1,7 +1,11 @@
 Silent
 {
   \textborn \textdied
+  \allowbreak
 }
-[
+[]
 
-]
+WipeArg
+{
+  \jhchapter:{} \jhhousepic:[]{}{} \jhpic:[]{}{}
+}
