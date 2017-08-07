@@ -1,4 +1,6 @@
 \documentclass[a4paper,twoside,12pt]{book}
+\author{\input{author.tex}}
+\title{\input{title.tex}}
 % Packages
 \usepackage{polyglossia}
 \setdefaultlanguage{swedish}
@@ -17,6 +19,7 @@
 \usepackage{marginnote}
 \usepackage{needspace}
 \usepackage{lipsum}
+\usepackage{titling}
 \usepackage[nobottomtitles*]{titlesec}
 \usepackage[font=footnotesize,skip=0.5\baselineskip,figurename=Bild,labelsep=period]{caption}
 \usepackage{microtype}
@@ -57,8 +60,6 @@
 \defaultfontfeatures{Ligatures=TeX}
 
 % Variables
-\author{Fjalar Fors etc}
-\title{Jungar byhistorik}
 \pagestyle{plain}
 
 % Settings
@@ -102,10 +103,18 @@
 }
 \newcommand{\jhsection}[1]{\section*{#1}}
 \newcommand{\jhsubsection}[1]{\subsection*{#1}}
+\newcommand{\jhsubsubsection}[1]{\subsubsection*{#1}}
 \newcommand{\jhhouse}[5]{%
 	\needspace{18\baselineskip}
 	\section*{#1}%
 	\addcontentsline{toc}{section}{\protect#1}
+	\vspace{-1.5\baselineskip}
+	R:nr #2 av #3 hemman Karta #4 nr \jhbold{#5}
+}
+\newcommand{\jholdhouse}[5]{%
+	%\needspace{18\baselineskip}
+	\subsection*{#1}%
+	%\addcontentsline{toc}{section}{\protect#1}
 	\vspace{-1.5\baselineskip}
 	R:nr #2 av #3 hemman Karta #4 nr \jhbold{#5}
 }
