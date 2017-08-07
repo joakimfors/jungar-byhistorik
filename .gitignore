@@ -6,3 +6,5 @@
 *.pdf
 historik.tex
 bilder
+*.fls
+*.*_latexmk

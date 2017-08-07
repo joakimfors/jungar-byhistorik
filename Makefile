@@ -4,8 +4,9 @@ imgs := $(shell find bilder -iname '*.jpg' -or -iname '*.png' | sed 's/ /\\ /g')
 all: historik.pdf
 
 %.pdf: %.tex
-	@xelatex -halt-on-error $< && \
-		xelatex -halt-on-error $<
+	#@xelatex -halt-on-error $< && \
+	#	xelatex -halt-on-error $<
+	@latexmk -xelatex $<
 
 historik.pdf: historik.tex pre.tex post.tex
 
@@ -23,7 +24,6 @@ historik.tex: $(texts) index.txt
 test.pdf: test.tex pre.tex post.tex
 
 clean:
-	rm -f *.aux *.log *.out *.toc historik.pdf historik.tex
+	rm -f *.aux *.log *.out *.toc *.fls *.*_latexmk historik.pdf historik.tex
 
 .PHONY: clean
-
