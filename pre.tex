@@ -14,9 +14,14 @@
 \usepackage[space]{grffile}
 \usepackage{wrapfig}
 \usepackage{url}
+%\usepackage{datetime2}
+%\usepackage{hyphenat}
+%\usepackage{showframe}
 \usepackage{enumitem}
 \usepackage{longtable}
+\usepackage{multicol}
 \usepackage{marginnote}
+\usepackage{ifoddpage}
 \usepackage{needspace}
 \usepackage{lipsum}
 \usepackage{titling}
@@ -86,15 +91,26 @@
 }
 \makeatother
 \newcommand{\jhoccupant}[3]{%
-	\needspace{4\baselineskip}
-	\message{start \the\jhoccupantstart}%
-	\message{stop \the\jhoccupantstop}%
+	\needspace{4\baselineskip}%
+	%\message{start \the\jhoccupantstart}%
+	%\message{stop \the\jhoccupantstop}%
 	\invisiblesubsection{#1}%
-	\setlength{\jhoccupantstart}{\pagetotal}%
+	%\setlength{\jhoccupantstart}{\pagetotal}%
 	\leavevmode%
+	%\checkoddpage%
+	%  \ifoddpage%
+	%		\marginnote{%
+	%			\parbox[t]{\marginparwidth}{\raggedright \textbf{#1} \\ #2 \\ #3}%
+	%		}%
+	%	\else%
+	%		\marginnote{%
+	%			\parbox[t]{\marginparwidth}{\raggedleft \textbf{#1} \\ #2 \\ #3}%
+	%		}%
+	%	\fi%
 	\marginnote{%
 		\textbf{#1} \\ #2 \\ #3%
-	}\gobblepars%
+	}%
+	\gobblepars%
 	%\setlength{\jhoccupantstop}{\pagetotal}%
 }
 \newcommand{\jhchapter}[1]{%
@@ -105,7 +121,7 @@
 \newcommand{\jhsubsection}[1]{\subsection*{#1}}
 \newcommand{\jhsubsubsection}[1]{\subsubsection*{#1}}
 \newcommand{\jhhouse}[5]{%
-	\needspace{18\baselineskip}
+	\needspace{18\baselineskip}%
 	\section*{#1}%
 	\addcontentsline{toc}{section}{\protect#1}
 	\vspace{-1.5\baselineskip}
@@ -130,7 +146,8 @@
   \fi\endgroup}
 \makeatother
 \newcommand{\jhhousepic}[3][]{%
-	\Needspace{12\baselineskip}%
+	%\Needspace{12\baselineskip}%
+	\Needspace{0.48\textwidth}%
 	\begin{wrapfigure}{O}{0.5\textwidth}
 		\vspace{-1\baselineskip}
 		\centering
