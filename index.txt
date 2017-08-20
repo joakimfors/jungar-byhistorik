@@ -12,6 +12,7 @@ Silvast_Fors06.tex
 Grotas01.tex
 Boos01.tex
 Jungar_Ruotsala.tex
+Svartbacken.tex
 Mietala.tex
 Gunnar.tex
 Tollikko.tex
