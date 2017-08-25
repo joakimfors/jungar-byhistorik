@@ -17,6 +17,7 @@
 %\usepackage{datetime2}
 %\usepackage{hyphenat}
 %\usepackage{showframe}
+\usepackage[xindy]{imakeidx}
 \usepackage{enumitem}
 \usepackage{longtable}
 \usepackage{multicol}
@@ -134,7 +135,7 @@
 	\vspace{-1\baselineskip}
 	R:nr #2 av #3 hemman Karta #4 nr \jhbold{#5}
 }
-\newcommand{\jhperson}[3]{#1, \textborn #2\notblank{#3}{--\textdied #3}{}}
+\newcommand{\jhperson}[3]{#1\notblank{#1}{\index{#1}}{}, \textborn #2\notblank{#3}{--\textdied #3}{}}
 \makeatletter
 \newcommand{\checkheight}[1]{%
   \par \penalty-100\begingroup%
@@ -202,6 +203,8 @@
 	\end{enumerate}%
 	\end{samepage}%
 }
+
+\makeindex
 
 % Document
 \begin{document}

@@ -6,7 +6,7 @@ imgs := $(shell find bilder -iname '*.jpg' -or -iname '*.png' | sed 's/ /\\ /g')
 all: historik.pdf
 
 %.pdf: %.tex
-	@latexmk -g -xelatex -halt-on-error $<
+	@latexmk -g -xelatex -shell-escape -halt-on-error $<
 
 historik.pdf: historik.tex pre.tex post.tex title.tex author.tex $(inputs)
 
@@ -33,7 +33,7 @@ tmp:
 test.pdf: test.tex pre.tex post.tex
 
 clean:
-	rm -f *.aux *.log *.out *.toc *.fls *.*_latexmk historik.pdf historik.tex
+	rm -f *.aux *.log *.out *.toc *.fls *.idx *.ilg *.ind *.*_latexmk historik.pdf historik.tex
 	rm -rf tmp/
 
 .PHONY: clean

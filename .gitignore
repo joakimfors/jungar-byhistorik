@@ -9,3 +9,6 @@ bilder
 *.fls
 *.*_latexmk
 tmp
+*.idx
+*.ilg
+*.ind
