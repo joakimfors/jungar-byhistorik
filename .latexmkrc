@@ -1,1 +1,1 @@
-$makeindex = 'texindy -I xelatex -L swedish %S';
+#$makeindex = 'texindy -I xelatex -L swedish %S';
