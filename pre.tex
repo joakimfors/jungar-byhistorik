@@ -22,6 +22,7 @@
 \usepackage{longtable}
 \usepackage{multicol}
 \usepackage{marginnote}
+\usepackage{nameref}
 \usepackage{ifoddpage}
 \usepackage{needspace}
 \usepackage{lipsum}
@@ -91,6 +92,16 @@
 		{}
 }
 \makeatother
+\newcounter{occupantcounter}
+\newcounter{nextoccupantcounter}
+\makeatletter
+\newcommand{\jhoccupantlabel}[1]{%
+\refstepcounter{occupantcounter}%
+\immediate\write\@auxout{%
+  \string\newlabel{occ:\arabic{occupantcounter}}{{1}{\thepage}{{\unexpanded{#1}}}{occupantcounter.\number\value{occupantcounter}}{}}%
+}%
+}
+\makeatother
 \newcommand{\jhoccupant}[3]{%
 	\needspace{4\baselineskip}%
 	%\message{start \the\jhoccupantstart}%
@@ -110,6 +121,7 @@
 	%	\fi%
 	\marginnote{%
 		\textbf{#1} \\ #2 \\ #3%
+		\jhoccupantlabel{#1, #2}%
 	}%
 	\gobblepars%
 	%\setlength{\jhoccupantstop}{\pagetotal}%
@@ -122,9 +134,10 @@
 \newcommand{\jhsubsection}[1]{\subsection*{#1}}
 \newcommand{\jhsubsubsection}[1]{\subsubsection*{#1}}
 \newcommand{\jhhouse}[5]{%
-	\needspace{18\baselineskip}%
+	\Needspace{16\baselineskip}%
 	\section*{#1}%
-	\addcontentsline{toc}{section}{\protect#1}
+	\setcounter{nextoccupantcounter}{\theoccupantcounter+1}
+	\addcontentsline{toc}{section}{\protect#1 --- \nameref{occ:\arabic{nextoccupantcounter}}}
 	\vspace{-1.5\baselineskip}
 	R:nr #2 av #3 hemman Karta #4 nr \jhbold{#5}
 }
@@ -135,7 +148,8 @@
 	\vspace{-1\baselineskip}
 	R:nr #2 av #3 hemman Karta #4 nr \jhbold{#5}
 }
-\newcommand{\jhperson}[3]{#1\notblank{#1}{\index{#1}}{}, \textborn #2\notblank{#3}{--\textdied #3}{}}
+\newcommand{\jhname}[2][]{\notblank{#1}{#1}{#2}\index{#2}}
+\newcommand{\jhperson}[3]{#1, \textborn #2\notblank{#3}{--\textdied #3}{}}
 \makeatletter
 \newcommand{\checkheight}[1]{%
   \par \penalty-100\begingroup%
