@@ -23,23 +23,29 @@ Ordningen på hur textfiler ska inkluderas i det slutgiltiga dokumentet anges i 
 
 ### Kortkommandon
 
-`\jhchapter{kapitelnamn}` - Skapar nytt kapitel
+`\jhchapter{kapitelnamn}` - Skapar nytt kapitel.
 
 `\jhsection{sektionsnamn}` - …
 
 `\jhsubsection{undersektionsnamn}` - …
 
-`\jhhouse{husnamn}{registernummer}{hemman}{kartblad}{husnummer}` - Påbörjar ett avsnitt om en gård
+`\jhhouse{husnamn}{registernummer}{hemman}{kartblad}{husnummer}` - Påbörjar ett avsnitt om en gård.
 
-`\jhoccupant{efternamn}{förnamn}{årtal}` - Boende på gården under ett tidsintervall
+`\jhoccupant{efternamn}{förnamn}{årtal}` - Boende på gården under ett tidsintervall.
 
-`\jhhousepic{filnamn}{bildtext}` - Infogar husbild från katalogen *bilder*
+`\jhnooccupant{}` - Används efter ett `\jhhouse` som inte har någon innevånare för att få korrekt utseende i innehållsförteckningen
 
-`\jhpic{filnamn}{bildtext}` - Infogar bild från katalogen *bilder*
+`\jhhousepic[]{filnamn}{bildtext}` - Infogar husbild från katalogen *bilder*. [] kan lämnas bort; används för att ange referens ex `\jhhousepic[pic:kvarnen]{kv.jpg}{Kvarnen}`. Kan senare refereras till med `\ref{pic:kvarnen}` och/eller `\pageref{pic:kvarnen}`.
 
-`\jhperson{namn}{född}{död}` - Formaterar automatiskt datumen
+`\jhpic[]{filnamn}{bildtext}` - Infogar bild från katalogen *bilder*. - " -.
+
+`\jhperson[]{namn}{född}{död}` - Formaterar automatiskt datumen.
+
+`\jhname[]{}` - Används för att lägga till namn till registret. Sätta fullständiga namnet i {}-fältet. [] kan lämnas bort men används annar för att skriva ut ett annat namn i texten än det som sätts in i registret. Ex: `\jhname[Alfons]{Alfons Åberg}` gör att "Alfons" kommer att stå i texten medan det i registret står "Alfons Åberg". Ex2: `\jhname{Alfons Åberg}` gör att det står "Alfons Åberg" både i i texten och registret.
 
 `\jhbold{text}` -  Fet stil
+
+`\ref{}`, `\pageref{}` - Används för att referera till en viss bild.
 
 
 ### Listor och tabeller
