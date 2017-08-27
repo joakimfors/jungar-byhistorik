@@ -5,14 +5,11 @@
 
 # add \jhname to \jhperson
 :fix-jhperson
-/\\jhperson\{[[:alpha:]]/{
+/\\jhperson\{(\\jhbold\{)?[[:alpha:]]/{
   G
-  s/(.*\\jhperson\{)([[:alpha:] -]*)(\}.*)\n\\jhoccupant\{([^\}]*)\}.*/\1\\jhname[\2]\{\4, \2\}\3/
+  s/(.*\\jhperson\{)(\\jhbold\{)?([[:alpha:] -]*)(\}.*)\n\\jhoccupant\{([^\}]*)\}.*/\1\2\\jhname[\3]\{\5, \3\}\4/
   t fix-jhperson
 }
-
-# add \jhname to \jhperson
-s/(\\jhperson\{\\jhbold\{)([[:alpha:] -]*)(\}\})/\1\\jhname[\2]\{\2\}\3/g
 
 # allow line breaks between numbers in a date
 s/([0-3][0-9])\.([0-2][0-9])\.([0-9]{1,4})/\1.\\allowbreak\{\}\2.\\allowbreak\{\}\3/g

@@ -16,14 +16,8 @@ historik.tex: $(index)
 	$(file >>$@,\input{post.tex})
 	@./process_img.sh
 
-tmp/%.tex: %.tex tmp Makefile
-	@cat $< | sed -E \
-		-e 's/(\\jhperson\{)([[:alpha:] -]*)(\})/\1\\jhname[\2]\{\2\}\3/g' -e '# add \jhname to \jhperson' \
-		-e 's/(\\jhperson\{\\jhbold\{)([[:alpha:] -]*)(\}\})/\1\\jhname[\2]\{\2\}\3/g' -e '# add \jhname to \jhperson' \
-		-e 's/([0-3][0-9])\.([0-2][0-9])\.([0-9]{1,4})/\1.\\allowbreak\{\}\2.\\allowbreak\{\}\3/g' -e '# allow line breaks between numbers in a date' \
-		-e '/\\jh(house)?pic/! s/([[:alpha:]]{2,}|[[:digit:]]{2,4})-([[:alpha:]]{2,})/\1-\\allowbreak\{\}\2/g' -e '# allow line break in hyphenated names or year combos' \
-		-e :1 -e 's/(\\jhname(\[.*\])?\{.*)\\allowbreak\{\}(.*\})/\1\3/;t1' -e '# remove allowbreak from second jhname arg' \
-		> $@
+tmp/%.tex: %.tex tmp Makefile commands.sed
+	@cat $< | sed -E -f commands.sed > $@
 
 tmp:
 	@mkdir $@
