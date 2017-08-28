@@ -18,6 +18,7 @@
 %\usepackage{hyphenat}
 %\usepackage{showframe}
 \usepackage[makeindex]{imakeidx}
+\usepackage[nottoc]{tocbibind}
 \usepackage{enumitem}
 \usepackage{longtable}
 \usepackage{multicol}
@@ -218,6 +219,11 @@
 }
 
 \makeindex[name=namn,title=Namn]
+
+% Remove numbering/labeling from bib entries
+\makeatletter
+\renewcommand\@biblabel[1]{}
+\makeatother
 
 % Document
 \begin{document}
