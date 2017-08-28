@@ -12,3 +12,5 @@ tmp
 *.idx
 *.ilg
 *.ind
+*.bbl
+*.blg
