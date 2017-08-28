@@ -41,7 +41,7 @@ Ordningen på hur textfiler ska inkluderas i det slutgiltiga dokumentet anges i 
 
 `\jhperson[]{namn}{född}{död}` - Formaterar automatiskt datumen.
 
-`\jhname[]{}` - Används för att lägga till namn till registret. Sätta fullständiga namnet i {}-fältet. [] kan lämnas bort men används annar för att skriva ut ett annat namn i texten än det som sätts in i registret. Ex: `\jhname[Alfons]{Alfons Åberg}` gör att "Alfons" kommer att stå i texten medan det i registret står "Alfons Åberg". Ex2: `\jhname{Alfons Åberg}` gör att det står "Alfons Åberg" både i i texten och registret.
+`\jhname[]{}` - Används för att lägga till namn till registret. Sätt fullständiga namnet i {}-fältet. Fältet [] kan lämnas bort men används annars för att skriva ut ett annat namn i texten än det som sätts in i registret. Ex: `\jhname[Alfons]{Alfons Åberg}` gör att "Alfons" kommer att stå i texten medan det i registret står "Alfons Åberg". Ex2: `\jhname{Alfons Åberg}` gör att det står "Alfons Åberg" både i texten och registret.
 
 `\jhbold{text}` -  Fet stil
 
