@@ -23,3 +23,13 @@ s/([0-3][0-9])\.([0-2][0-9])\.([0-9]{1,4})/\1.\\allowbreak\{\}\2.\\allowbreak\{\
 :fix-jhname
 s/(\\jhname(\[.*\])?\{.*)\\allowbreak\{\}(.*\})/\1\3/
 t fix-jhname
+
+# append size field to jhpic
+#/^\\jhpic(\[.*\])?\{[^}]*\}\{[^}]*\}$/ {
+#  s/$/{}/
+#}
+/\\jhpic/ {
+  /\{[[:digit:]]{1,}\.[[:digit:]]{1,}\}$/!{
+    s/$/{}/
+  }
+}
