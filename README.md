@@ -77,11 +77,21 @@ Kommandot `\begin{center}` säger att hela tabellen ska centreras på sidan. Det
 
 Listor:
 
+Punkterade
+
+<pre>
+\begin{itemize}
+  \item hejsan
+\end{itemize}</pre>
+
+Numrerade
+
 <pre>
 \begin{enumerate}
   \item hejsan
   \item svejsan
 \end{enumerate}</pre>
+
 
 
 ### Specialtecken
