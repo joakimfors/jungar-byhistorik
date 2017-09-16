@@ -183,13 +183,17 @@
 			\ifstrempty{#1}{}{\label{#1}}
 	\end{wrapfigure}
 }
-\newcommand{\jhpic}[3][]{
+\newcommand{\jhpic}[4][]{
 	\begin{figure}[h]
 		\centering
 			\ifstrempty{#2}{%
 				\rule{1\textwidth}{0.67\textwidth}
 			}{%
-				\includegraphics[width=1\textwidth]{bilder/#2}
+				\ifstrempty{#4}{%
+					\includegraphics[width=1\textwidth]{bilder/#2}
+				}{%
+					\includegraphics[width=#4\textwidth]{bilder/#2}
+				}%
 			}
 			%\ifstrempty{#2}{}{{\footnotesize#2}}
 			\caption{#3}
