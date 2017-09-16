@@ -73,7 +73,7 @@ Tabeller skapas t.ex. som nedan:
   \end{tabular}
 \end{center}</pre>
 
-Kommandot `\begin{center}` säger att hela tabellen ska centreras på sidan. Det andra fältet i `\begin{tabular}{l|c|r}` anger antalet kolumner, i det här fallet 3 st, samt hur text i kolumnerna ska justeras. Tecknet `|` betyder att kolumnerna separeras av en linje. Lämna bort om linjenseparator ej önskas. Värden i tabellen separeras sedan med `&` och en rad i tabellen avslutas med `\\`. För att infoga horisontella linjer kan man använda kommandot `\hline`.
+Kommandot `\begin{center}` säger att hela tabellen ska centreras på sidan. Det andra fältet i `\begin{tabular}{l|c|r}` anger antalet kolumner, i det här fallet 3 st, samt hur text i kolumnerna ska justeras. Tecknet `|` betyder att kolumnerna separeras av en linje. Lämna bort om linjenseparator ej önskas. Värden i tabellen separeras sedan med `&` och en rad i tabellen avslutas med `\\`. För att infoga horisontella linjer kan man använda kommandot `\hline`. För att få in text med radbrytningar i en tabell kan kolumntypen `p{}` användas där bredden sätts inom vågparentesarna, t.ex. `0.7\textwidth`. Om tabellen är lång kan man använda `longtable` i stället för `tabular` så den kan sidbrytas.
 
 Listor:
 
