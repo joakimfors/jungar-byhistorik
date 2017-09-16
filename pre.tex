@@ -108,23 +108,30 @@
 	\needspace{4\baselineskip}%
 	%\message{start \the\jhoccupantstart}%
 	%\message{stop \the\jhoccupantstop}%
-	\invisiblesubsection{#1}%
+	%\invisiblesubsection{#1}%
 	%\setlength{\jhoccupantstart}{\pagetotal}%
-	\leavevmode%
-	%\checkoddpage%
-	%  \ifoddpage%
-	%		\marginnote{%
-	%			\parbox[t]{\marginparwidth}{\raggedright \textbf{#1} \\ #2 \\ #3}%
-	%		}%
-	%	\else%
-	%		\marginnote{%
-	%			\parbox[t]{\marginparwidth}{\raggedleft \textbf{#1} \\ #2 \\ #3}%
-	%		}%
-	%	\fi%
-	\marginnote{%
-		\textbf{#1} \\ #2 \\ #3%
-		\jhoccupantlabel{ --- #1, #2}%
-	}%
+	%\leavevmode%
+	\gobblepars%
+	\checkoddpage%
+	  \ifoddpage%
+			\invisiblesubsection{#1}%
+			\leavevmode%
+			\marginnote{%
+				\unskip\parbox[t]{0.95\marginparwidth}{\raggedright \textbf{#1} \\ #2 \\ #3}%
+				\jhoccupantlabel{ --- #1, #2}%
+			}%
+		\else%
+			\invisiblesubsection{#1}%
+			\leavevmode%
+			\marginnote{%
+				\unskip\parbox[t]{0.95\marginparwidth}{\raggedleft \textbf{#1} \\ #2 \\ #3}%
+				\jhoccupantlabel{ --- #1, #2}%
+			}%
+		\fi%
+	%\marginnote{%
+	%	\textbf{#1} \\ #2 \\ #3%
+	%	\jhoccupantlabel{ --- #1, #2}%
+	%}%
 	\gobblepars%
 	%\setlength{\jhoccupantstop}{\pagetotal}%
 }
