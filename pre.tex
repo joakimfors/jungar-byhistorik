@@ -139,8 +139,14 @@
 	\chapter*{#1}%
 	\addcontentsline{toc}{chapter}{\protect#1}%
 }
-\newcommand{\jhsection}[1]{\section*{#1}}
-\newcommand{\jhsubsection}[1]{\subsection*{#1}}
+\newcommand{\jhsection}[2][]{%
+	\section*{#2}%
+	\ifstrempty{#1}{}{\addcontentsline{toc}{section}{\protect#1}}%
+}
+\newcommand{\jhsubsection}[2][]{%
+	\subsection*{#2}%
+	\ifstrempty{#1}{}{\addcontentsline{toc}{subsection}{\protect#1}}%
+}
 \newcommand{\jhsubsubsection}[1]{\subsubsection*{#1}}
 \newcommand{\jhhouse}[5]{%
 	\Needspace{16\baselineskip}%
