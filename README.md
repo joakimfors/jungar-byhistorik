@@ -37,7 +37,7 @@ Ordningen på hur textfiler ska inkluderas i det slutgiltiga dokumentet anges i 
 
 `\jhhousepic[]{filnamn}{bildtext}` - Infogar husbild från katalogen *bilder*. [] kan lämnas bort; används för att ange referens ex `\jhhousepic[pic:kvarnen]{kv.jpg}{Kvarnen}`. Kan senare refereras till med `\ref{pic:kvarnen}` och/eller `\pageref{pic:kvarnen}`.
 
-`\jhpic[]{filnamn}{bildtext}` - Infogar bild från katalogen *bilder*. - " -.
+`\jhpic[]{filnamn}{bildtext}{bredd}` - Infogar bild från katalogen *bilder*. - " -. Bredden anges som en andel av textbredden där 1 är lika bred som texten (standardläget). Ex: 0.8
 
 `\jhperson[]{namn}{född}{död}` - Formaterar automatiskt datumen.
 
