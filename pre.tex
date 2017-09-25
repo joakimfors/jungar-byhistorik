@@ -29,7 +29,7 @@
 \usepackage{lipsum}
 \usepackage{titling}
 \usepackage[nobottomtitles*]{titlesec}
-\usepackage[format=plain,font=footnotesize,labelfont=bf,skip=0.5\baselineskip,figurename=Bild,labelsep=endash]{caption}
+\usepackage[format=plain,font=footnotesize,position=auto,labelfont=bf,skip=0.5\baselineskip,figurename=Bild,labelsep=endash]{caption}
 \usepackage{microtype}
 %\usepackage[top=Bcm, bottom=Hcm, outer=Ccm, inner=Acm, heightrounded, marginparwidth=Ecm, marginparsep=Dcm]{geometry}
 \usepackage[b5paper,top=15mm,bottom=15mm,outer=35mm,inner=15mm,marginparwidth=30mm,marginparsep=0.6em]{geometry}
@@ -135,19 +135,24 @@
 	\gobblepars%
 	%\setlength{\jhoccupantstop}{\pagetotal}%
 }
+
 \newcommand{\jhchapter}[1]{%
 	\chapter*{#1}%
 	\addcontentsline{toc}{chapter}{\protect#1}%
 }
+
 \newcommand{\jhsection}[2][]{%
 	\section*{#2}%
 	\ifstrempty{#1}{}{\addcontentsline{toc}{section}{\protect#1}}%
 }
+
 \newcommand{\jhsubsection}[2][]{%
 	\subsection*{#2}%
 	\ifstrempty{#1}{}{\addcontentsline{toc}{subsection}{\protect#1}}%
 }
+
 \newcommand{\jhsubsubsection}[1]{\subsubsection*{#1}}
+
 \newcommand{\jhhouse}[5]{%
 	\Needspace{16\baselineskip}%
 	\section*{#1}%
@@ -156,14 +161,18 @@
 	\vspace{-1.5\baselineskip}
 	R:nr #2 av #3 hemman Karta #4 nr \jhbold{#5}
 }
+
 \newcommand{\jholdhouse}[5]{%
 	\subsection*{#1}%
 	\vspace{-1\baselineskip}
 	R:nr #2 av #3 hemman Karta #4 nr \jhbold{#5}
 }
+
 \newcommand{\jhname}[2][]{\notblank{#1}{#1}{#2}\index[namn]{#2}}
-\newcommand{\jhperson}[3]{#1, \textborn #2\notblank{#3}{--\textdied #3}{}}
+
+\newcommand{\jhperson}[3]{#1, \textborn #2\notblank{#3}{--\allowbreak{}\textdied #3}{}}
 \makeatletter
+
 \newcommand{\checkheight}[1]{%
   \par \penalty-100\begingroup%
   \setbox8=\hbox{#1}%
@@ -173,22 +182,27 @@
     \break
   \fi\endgroup}
 \makeatother
+
 \newcommand{\jhhousepic}[3][]{%
 	%\Needspace{12\baselineskip}%
-	\Needspace{0.52\textwidth}%
+	\Needspace{0.55\textwidth}%
 	\begin{wrapfigure}{O}{0.5\textwidth}
-		\vspace{-1\baselineskip}
-		\centering
+		\vspace{-1\baselineskip}%
+		%\centering
+		\begin{center}
 			\ifstrempty{#2}{%
 				\rule{0.48\textwidth}{0.32\textwidth}
 			}{%
 				\includegraphics[width=0.48\textwidth]{bilder/#2}
-			}
+			}%
 			%\ifstrempty{#2}{}{{\footnotesize#2}}
-			\caption{#3}
-			\ifstrempty{#1}{}{\label{#1}}
+			\caption{#3}%
+			\ifstrempty{#1}{}{\label{#1}}%
+		\end{center}
+		\vspace{-1\baselineskip}%
 	\end{wrapfigure}
 }
+
 \newcommand{\jhpic}[4][]{
 	\begin{figure}[h]
 		\centering
@@ -200,17 +214,19 @@
 				}{%
 					\includegraphics[width=#4\textwidth]{bilder/#2}
 				}%
-			}
+			}%
 			%\ifstrempty{#2}{}{{\footnotesize#2}}
-			\caption{#3}
-			\ifstrempty{#1}{}{\label{#1}}
+			\caption{#3}%
+			\ifstrempty{#1}{}{\label{#1}}%
 	\end{figure}
 }
+
 \newcommand\invisiblesection[1]{%
 	\refstepcounter{section}%
 	\addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
 	\sectionmark{#1}
 }
+
 \makeatletter
 \newcommand\invisiblesubsection[1]{%
 %	\refstepcounter{section}%
@@ -221,6 +237,7 @@
 	\@afterheading%
 }
 \makeatother
+
 \newcommand{\jhbold}[1]{\textbf{#1}}
 \newcommand*{\jhvspace}[1][2]{\vspace{#1\baselineskip}}
 \def\textborn {\char"2605\relax} %{\char"002A }
