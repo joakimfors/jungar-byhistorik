@@ -13,6 +13,7 @@
 \usepackage{graphicx}
 \usepackage[space]{grffile}
 \usepackage{wrapfig}
+\usepackage{subcaption}
 \usepackage{url}
 %\usepackage{datetime2}
 %\usepackage{hyphenat}
@@ -183,9 +184,19 @@
   \fi\endgroup}
 \makeatother
 
+%
+% jhhousepic
+%
+\newsavebox{\imgbox}
+\newlength{\imght}
 \newcommand{\jhhousepic}[3][]{%
 	%\Needspace{12\baselineskip}%
-	\Needspace{0.55\textwidth}%
+	\savebox{\imgbox}{%
+		\includegraphics[width=0.48\textwidth]{bilder/#2}
+	}%
+	\setlength{\imght}{\ht\imgbox}
+	\addtolength{\imght}{4\baselineskip}
+	\Needspace{1\imght}%\Needspace{1.2\ht\imgbox}%\Needspace{0.52\textwidth}%
 	\begin{wrapfigure}{O}{0.5\textwidth}
 		\vspace{-1\baselineskip}%
 		%\centering
@@ -193,7 +204,7 @@
 			\ifstrempty{#2}{%
 				\rule{0.48\textwidth}{0.32\textwidth}
 			}{%
-				\includegraphics[width=0.48\textwidth]{bilder/#2}
+				\usebox{\imgbox}%\includegraphics[width=0.48\textwidth]{bilder/#2}
 			}%
 			%\ifstrempty{#2}{}{{\footnotesize#2}}
 			\caption{#3}%
@@ -203,6 +214,9 @@
 	\end{wrapfigure}
 }
 
+%
+% jhpic
+%
 \newcommand{\jhpic}[4][]{
 	\begin{figure}[h]
 		\centering
