@@ -8,7 +8,7 @@ all: historik.pdf
 %.pdf: %.tex
 	@latexmk -g -xelatex -shell-escape -halt-on-error $<
 
-historik.pdf: historik.tex pre.tex post.tex title.tex author.tex $(inputs)
+historik.pdf: historik.tex pre.tex post.tex title.tex author.tex kartor.tex $(inputs)
 
 historik.tex: $(index)
 	$(file >$@,\input{pre.tex})
